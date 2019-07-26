@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <button @click="dv">destory vue</button>
+    <p v-show="isShow">{{msg}}</p>
+</div>
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            msg:'123321 1234567',
+            isShow:true
+        },
+
+        mounted(){
+            this.interValId = setInterval(() =>{
+                console.log('---')
+                this.isShow = !this.isShow
+            } ,1000)
+        },
+
+        beforeDestroy(){
+            clearInterval(this.interValId)
+        },
+
+        methods:{
+            dv(){
+                this.$destroy()
+            }
+        },
+
+
+    })
+
+
+</script>
+</body>
+</html>

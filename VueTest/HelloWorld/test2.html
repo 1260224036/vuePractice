@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <div id="app">
+       <h1>双大括号表达式</h1>
+       <div >
+           <p v-model="msg">{{msg}}</p>
+           <p v-model="msg">{{msg.toUpperCase()}}</p>
+           <p v-text="url">{{url}}</p>
+           <p v-html="url">{{url}}</p>
+       </div>
+       <h1>强制数据绑定</h1>
+       <img :src="imgUrl" alt="">
+       <h1>绑定监听事件</h1>
+       <button @click="warm('abc',$event)">响应事件</button>
+   </div>
+    <script type="text/javascript" src="../vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el: '#app',
+            data:{
+                msg:'I will back!',
+                url:'<a href="baidu.com">baidu.com</a>',
+                imgUrl:'https://cn.vuejs.org/images/logo.png'
+            },
+
+            methods:{
+                warm:function(val,el){
+                    alert(val + el.target.innerHTML)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

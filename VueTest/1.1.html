@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: black;
+            margin: 20px auto;
+        }
+        #gn{
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            let bs = document.getElementsByTagName('button');
+
+            bs[0].onclick = function () {
+                let box = document.getElementById('box');
+                alert(box.style.width);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="gn">
+        <button>变宽</button>
+        <button>变高</button>
+        <button>变色</button>
+        <button>隐藏</button>
+        <button>重置</button>
+    </div>
+    <div id="box"></div>
+</body>
+</html>

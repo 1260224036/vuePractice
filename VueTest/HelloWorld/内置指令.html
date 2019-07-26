@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        [v-cloak]{
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <p ref="num">123321 1234567</p>
+    <p ref="text">一二三 <span>三二一</span> </p>
+    <p ref="English" v-cloak>{{msg}}</p>
+    <button @click="ts">提示</button>
+</div>
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+    alert(1)
+    new Vue({
+        el:'#app',
+        data:{
+            msg:'sdasdsadasd'
+        },
+
+        methods:{
+            ts(){
+                alert(this.$refs.English.innerHTML)
+            }
+        }
+    })
+
+
+</script>
+</body>
+</html>

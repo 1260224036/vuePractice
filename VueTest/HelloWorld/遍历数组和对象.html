@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h1>遍历数组</h1>
+    <ul >
+        <li v-for="(per,index) in arr" :key="index" >
+            {{index}} --- {{per.name}} --- {{per.age}} --- <button @click="deleteP(index)">删除</button >
+                                                       --- <button @click="updateP(index)">更新</button>
+        </li>
+    </ul>
+    <h1>遍历对象</h1>
+    <p v-for="(val,k) in person" :key="k">
+        {{k}} --- {{val}}
+    </p>
+</div>
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data:{
+            arr:[{name:'Bob',age:'16'},{name:'Tom',age:'26'},{name:'Jen',age:'32'}],
+            person:{name:'Bob',age:'16',num:2015034603021}
+        },
+
+        methods:{
+            deleteP(index){
+                this.arr.splice(index,1)
+            },
+
+            updateP(index,newName,newAge){
+
+            }
+        }
+    })
+</script>
+</body>
+</html>

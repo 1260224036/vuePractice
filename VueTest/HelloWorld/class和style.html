@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .red{
+            color: #f00;
+        }
+
+        .blue{
+            color:blue;
+        }
+
+        .fontSize{
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>class绑定</h1>
+        <div >
+            <p class="fontSize" :class="Red">表达式字符串</p>
+
+        </div>
+        <h1>style绑定</h1>
+        <button @click="update()">更新</button>
+
+    </div>
+    <script type="text/javascript" src="../vue.js"></script>
+    <script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data:{
+           Red:'red'
+        },
+
+        methods:{
+            update(){
+                this.Red = 'blue'
+            }
+        }
+    })
+</script>
+</body>
+</html>

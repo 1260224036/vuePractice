@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .t1-enter-active, .t1-leave-active{
+            transition: opacity 0.5s;
+        }
+        .t1-enter,.t1-leave-to {
+            opacity: 0;
+        }
+
+        .t2-enter-active, .t2-leave-active{
+            transition: opacity 0.5s,transform 0.5s;
+        }
+        .t2-enter,.t2-leave-to {
+            opacity: 0;
+            transform : translateX(10px)
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <button  @click="isShow = !isShow">T1</button>
+    <transition name="t1">
+        <p v-show="isShow">hello</p>
+    </transition>
+
+    <button  @click="isShow = !isShow">T2</button>
+    <transition name="t2">
+        <p v-show="isShow">hello</p>
+    </transition>
+</div>
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el:'#app',
+        data:{
+            isShow: true
+        }
+    })
+</script>
+</body>
+</html>

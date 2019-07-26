@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="FN"><br>
+        <input type="text" v-model="LN"><br>
+        <input type="text" v-model="AN1"><br>
+        <input type="text" v-model="AN2"><br>
+        <input type="text" v-model="AN3">
+    </div>
+
+    <script type="text/javascript" src="../vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                FN:'科比',
+                LN:'布莱恩特',
+                AN2:'科比 布莱恩特'
+            },
+
+            computed:{
+                AN1(){
+                    return this.FN + ' '+ this.LN
+                },
+
+                AN3:{
+                    get: function () {
+                        return this.FN + ' '+ this.LN
+                    },
+                    set: function (newAN) {
+                        const nameArr = newAN.trim().split(' ')
+                        this.FN = nameArr[0]
+                        this.LN = nameArr[1]
+                    }
+                }
+            },
+
+            watch: {
+                FN: function (newFN) {
+                    this.AN2 = newFN + ' ' + this.LN
+                }
+            },
+        })
+
+        vm.$watch('LN',function(newLN){
+            this.AN2 = this.FN + ' '+ newLN
+        })
+    </script>
+</body>
+</html>

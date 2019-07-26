@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <p>{{Time}}</p>
+</div>
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el:'#app',
+        data:{
+            Time: ''
+        },
+
+        mounted(){
+            const mydate = new Date()
+            // this.Time = mydate.getFullYear() + '-' + mydate.getMonth() + '-' + mydate.getDate()
+            this.filter('filDate',function(mydate){
+                this.Time = mydate.getFullYear() + '-' + mydate.getMonth() + '-' + mydate.getDate()
+            })
+
+        }
+    })
+
+
+</script>
+</body>
+</html>

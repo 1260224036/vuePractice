@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h1>搜索排序</h1>
+    <input type="text" v-model="searchName">
+    <ul >
+        <li v-for="(p,index) in filterPersons" :key="index" >
+            {{index}} --- {{p.name}} --- {{p.age}}
+        </li>
+    </ul>
+    <button @click="ageGHO">年龄升序</button>
+    <button @click="ageGDO">年龄降序</button>
+    <button @click="ageIO">原本顺序</button>
+
+</div>
+<script type="text/javascript" src="../vue.js"></script>
+<!--<script src="https://cdn.bootcss.com/vue/2.6.9/vue.js"></script>-->
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data:{
+            searchName:'',
+            orderType:0,
+            persons:[
+                {name:'Bob',age:9},
+                {name:'Tom',age:12},
+                {name:'Jen',age:43},
+                {name:'Hack',age:28},
+                {name:'Wu',age:20},
+                {name:'Gen',age:56}
+                ]
+
+        },
+
+        computed:{
+            filterPersons(){
+                const {searchName,persons,orderType} = this
+                let fPersons;
+                fPersons = persons.filter(p => p.name.indexOf(searchName)!==-1)
+                if(orderType==1){
+                    fPersons.sort(function(p1,p2){
+                        return p1.age - p2.age
+                    })
+                }
+                if(orderType==2){
+                    fPersons.sort(function(p1,p2){
+                        return p2.age - p1.age
+                    })
+                }
+                return fPersons
+            }
+        },
+
+        methods:{
+            ageGHO(){
+                this.orderType = 1
+            },
+            ageGDO(){
+                this.orderType = 2
+            },
+            ageIO(){
+                this.orderType = 0
+            }
+        }
+    })
+</script>
+</body>
+</html>

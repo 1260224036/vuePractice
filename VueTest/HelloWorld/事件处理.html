@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .outer{
+            width: 200px;
+            height: 200px;
+            background: #f00;
+        }
+        
+        .inner{
+            width: 100px;
+            height: 100px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <h1>绑定监听</h1>
+    <button @click="G1">Greet</button>
+    <button @click="G2('atguigu')">Greet2</button>
+    <button @click="G3">Greet3</button>
+    <button @click="G4('atguigu',$event)">Greet4</button>
+    <h1>事件修饰符</h1>
+    <a href="http://www.baidu.com" @click.prevent>百度一下</a>
+    <div class="outer" @click="test1">
+        <div class="inner" @click.stop="test2"></div>
+    </div>
+    <h1>按键修饰符</h1>
+    <input type="text" @keyup.13="test3">
+    <input type="text" @keyup="test4">
+
+</div>
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data:{
+
+        },
+
+        methods:{
+            G1(){
+                alert(1)
+            },
+            G2(msg){
+                alert(msg)
+            },
+            G3(event){
+                alert(event.target.innerHTML)
+            },
+            G4(msg,event){
+                alert(event.target.innerHTML + msg)
+            },
+            test1(){
+                alert('outer')
+                //return event.stopPropagation()
+            },
+            test2(){
+                alert('inner')
+            },
+            test3(event){
+                alert(event.target.value)
+            },
+            test4(event){
+                alert(event.keyCode)
+            }
+        }
+    })
+</script>
+</body>
+</html>

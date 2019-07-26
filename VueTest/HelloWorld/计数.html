@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <p>cliked: {{sumOfTime}} times, count is {{oddOrEven}}</p>
+        <button @click='Increment'>+</button>
+        <button @click='DeIncrement'>-</button>
+        <button @click="IfOddIncement">increment if odd</button>
+        <button @click="IncrementAsync">increment async</button>
+    </div>
+    <script type="text/javascript" src="../vue.js"></script>
+    <script type="text/javascript">
+        new Vue({
+            el:'#app',
+            data:{
+                sumOfTime: 0,
+            },
+            computed:{
+                oddOrEven(){
+                    if(this.sumOfTime%2 == 0){
+                        return '偶'
+                    }else{
+                        return '奇'
+                    }
+                }
+            },
+            methods:{
+                Increment(){
+                    this.sumOfTime ++
+                },
+                DeIncrement(){
+                    if(this.sumOfTime) {
+                        this.sumOfTime--
+                    }else{
+                        this.sumOfTime = 0
+                    }
+                },
+                IfOddIncement(){
+                    if(this.sumOfTime%2 == 0 ){
+                        this.Increment()
+                    }
+                },
+                IncrementAsync(){
+                    setTimeout(this.Increment,1000)
+                }
+
+            }
+        })
+    </script>
+</body>
+</html>

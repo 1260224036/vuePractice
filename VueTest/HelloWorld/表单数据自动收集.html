@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="app">
+    <span>用户名：</span><input type="text" v-model="un"><br>
+    <span>密码：</span><input type="password" v-model="pw"><br>
+    <span>性别：</span>
+    <label for="male">
+        <input type="radio" name="sex" id="male" value="male" v-model="sex" >男
+    </label>
+    <label for="female">
+        <input type="radio" name="sex" id="female" value="female" v-model="sex">女
+    </label>
+    <br>
+    <span>爱好：</span>
+    <input type="checkbox" name="hb" value="fb" v-model="hb">足球
+    <input type="checkbox" name="hb" value="bb" v-model="hb">篮球
+    <input type="checkbox" name="hb" value="tb" v-model="hb">乒乓球
+    <input type="checkbox" name="hb" value="bm" v-model="hb">羽毛球
+    <br>
+    <span>城市：</span>
+    <select name="city" id="city" v-model="city">
+        <option value="">未选择</option>
+        <option value="sh">上海</option>
+        <option value="gz">广州</option>
+        <option value="sz">深圳</option>
+        <option value="sw">汕尾</option>
+    </select>
+    <br>
+    <span>介绍：</span>
+    <textarea name="si" id="si" cols="30" rows="10" v-model="si"></textarea>
+    <br>
+    <button @click="collect">注册</button>
+</div>
+
+<script type="text/javascript" src="../vue.js"></script>
+<script>
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            un:'',
+            pw:'',
+            sex:'male',
+            hb:[],
+            city:'',
+            si:'',
+        },
+
+        computed:{
+
+        },
+
+        methods:{
+          collect(){
+              alert(this.un + ' '
+                  + this.pw + ' '
+                  + this.sex + ' '
+                  + this.hb + ' '
+                  + this.city + ' '
+                  + this.si )
+
+          }
+        },
+
+        watch: {
+
+        },
+    })
+
+
+</script>
+</body>
+</html>
