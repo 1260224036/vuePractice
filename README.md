@@ -1,2 +1,2 @@
-# personal
-个人文件夹
+＃vuePractice
+some simple demo for practice how to use vue
